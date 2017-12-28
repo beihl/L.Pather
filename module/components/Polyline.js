@@ -28,7 +28,7 @@
             elbowClass:   options.elbowClass
         };
 
-        this.polyline     = new L.Polyline(latLngs, this.options).addTo(map);
+        this.polyline     = new L.Polyline(latLngs, Object.assign(this.options, options || {})).addTo(map);
         this.map          = map;
         this.methods      = methods;
         this.edges        = [];
