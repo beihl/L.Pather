@@ -275,6 +275,7 @@
 
                     previewLine.attr('d', lineFunction(this.latLngs))
                       .attr('stroke', this.getOption('strokeColour'))
+                      .attr('stroke-dasharray', "5,5")
                       .attr('stroke-width', this.getOption('strokeWidth'))
                       .attr('fill', this.getOption('fill'));
 
