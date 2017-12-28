@@ -174,7 +174,9 @@
 
             var tileLayer     = this.map.getContainer().querySelector('.leaflet-tile-pane'),
                 originalState = this.draggingState ? 'enable' : 'disable';
-            tileLayer.style.pointerEvents = 'all';
+            if(titleLayer){
+              tileLayer.style.pointerEvents = 'all';
+            }
             this.map.dragging[originalState]();
 
         },
