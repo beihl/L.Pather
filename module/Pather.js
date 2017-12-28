@@ -267,13 +267,16 @@
 
                     var lineData = [this.fromPoint, new L.Point(point.x, point.y, false)];
                     this.latLngs.push(point);
+                    
+                    var previewLine = this.svg.selectAll("path.lineClass").data([1]);
 
-                    this.svg.append('path')
-                        .classed(this.getOption('lineClass'), true)
-                        .attr('d', lineFunction(lineData))
-                        .attr('stroke', this.getOption('strokeColour'))
-                        .attr('stroke-width', this.getOption('strokeWidth'))
-                        .attr('fill', 'none');
+                    previewLine.enter().append('path')
+                      .classed(this.getOption('lineClass'), true);
+
+                    previewLine.attr('d', lineFunction(this.latLngs))
+                      .attr('stroke', this.getOption('strokeColour'))
+                      .attr('stroke-width', this.getOption('strokeWidth'))
+                      .attr('fill', this.getOption('fill'));
 
                     this.fromPoint = { x: point.x, y: point.y };
 
